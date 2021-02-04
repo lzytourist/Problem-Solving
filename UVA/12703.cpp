@@ -70,10 +70,6 @@ int main()
       m[x.F] += x.S * fib[n].S;
     }
     
-    // map<int, int> factors;
-    // for(pair<int, int> x : factorize(a)) factors[x.F] += x.S + fib[n].F;
-    // for(pair<int, int> x : factorize(b)) factors[x.F] += x.S + fib[n].S;
-    
     for(pair<int, int> x : m) {
       printf("%d %d\n", x.F, x.S);
     }

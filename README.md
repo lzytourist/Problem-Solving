@@ -1,2 +1,1 @@
-## Competitive-Programming
-My solved problems
+## My solved problems

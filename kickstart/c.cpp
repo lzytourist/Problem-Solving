@@ -9,7 +9,7 @@ typedef unsigned long long ull;
 
 using namespace std;
 
-const int N = 1e9;
+const int N = 1e9 + 8;
 vector<ll> product;
 
 void gen() {

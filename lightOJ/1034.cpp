@@ -97,10 +97,6 @@ int main()
 			}
 		}
 		
-		//~ for (int i = 0; i < n; ++i) {
-			//~ cout << i + 1 << " " << roots[i] + 1 << endl;
-		//~ }
-		
 		for (int u = 0; u < n; ++u) {
 			for (int v : g[u]) {
 				if (roots[u] != roots[v]) {
@@ -113,7 +109,6 @@ int main()
 		for (int i = 0; i < n; ++i) {
 			if (i != roots[i]) continue;
 			
-			//~ cout << i + 1 << " - " << indeg[i] << endl;
 			if (indeg[i] == 0) ++cnt;
 		}
 		

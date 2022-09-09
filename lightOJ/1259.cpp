@@ -12,6 +12,7 @@ using namespace std;
 
 const int N = 1e7;
 bitset<N> prime;
+vector<int> primes;
 
 void gen() {
     for (int i = 3; 1LL * i * i <= 1LL * N; i += 2) {
@@ -19,6 +20,13 @@ void gen() {
             for (ll j = 1LL * i * i; j < N; j += 2LL * i) {
                 prime[j] = true;
             }
+        }
+    }
+
+    primes.pb(2);
+    for (int i = 3; i < N; i += 2) {
+        if (!prime[i]) {
+            primes.pb(i);
         }
     }
 }
@@ -52,8 +60,8 @@ int main()
         cin >> n;
         
         int cnt = 0;
-        for (int i = 2; i <= n - i; ++i) {
-            if (isPrime(i) && isPrime(n - i)) {
+        for (int i = 0; i < (int) primes.size() && primes[i] <= n - primes[i]; ++i) {
+            if (isPrime(primes[i]) && isPrime(n - primes[i])) {
                 ++cnt;
             }
         }

@@ -8,5 +8,5 @@
 !*.py
 !*.java
 !*/
+!*.sublime-*
 *markup.*
-

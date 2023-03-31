@@ -1,0 +1,17 @@
+{
+    "shell_cmd": "g++ -std=gnu++17 -Wshadow -Wall -g -fsanitize=address -fsanitize=undefined -Wno-unused-result -DLUCHADOR \"${file}\" -o \"${file_path}/${file_base_name}\"",
+    "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+    "working_dir": "${file_path}",
+    "selector": "source.c, source.c++",
+    "variants":
+    [
+        {
+            "name": "Run",
+            "shell_cmd": "g++ -std=gnu++17 -Wshadow -Wall -g -fsanitize=address -fsanitize=undefined -Wno-unused-result -DLUCHADOR \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+        },
+        {
+            "name": "Run - O2",
+            "shell_cmd": "g++ -std=gnu++17 -Wshadow -Wall -Wno-unused-result -DLUCHADOR \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+        }
+    ]
+}

@@ -20,24 +20,24 @@ bitset<N> vis;
 vector<pair<int, int>> critical;
 
 void dfs(int u, int p) {
-	vis[u] = true;
-	disc[u] = low[u] = ++timer;
+    vis[u] = true;
+    disc[u] = low[u] = ++timer;
 
-	for (int v : adj[u]) {
-		if (v == p) continue;
+    for (int v : adj[u]) {
+        if (v == p) continue;
 
-		if (!vis[v]) {
-			dfs(v, u);
+        if (!vis[v]) {
+            dfs(v, u);
 
-			low[u] = min(low[u], low[v]);
+            low[u] = min(low[u], low[v]);
 
-			if (low[v] > disc[u]) {
-				critical.emplace_back(min(u, v), max(u, v));
-			}
-		} else {
-			low[u] = min(low[u], disc[v]);
-		}
-	}
+            if (low[v] > disc[u]) {
+                critical.emplace_back(min(u, v), max(u, v));
+            }
+        } else {
+            low[u] = min(low[u], disc[v]);
+        }
+    }
 }
 
 int main()
@@ -54,38 +54,38 @@ int main()
     cin >> t;
 
     for (int tc = 1; tc <= t; ++tc) {
-    	cout << "Case " << tc << ":\n";
+        cout << "Case " << tc << ":\n";
 
-    	int n;
-    	cin >> n;
+        int n;
+        cin >> n;
 
-    	for (int i = 0; i < n; ++i) {
-    		disc[i] = low[i] = INT_MAX;
-    		vis[i] = false;
-    	}
+        for (int i = 0; i < n; ++i) {
+            disc[i] = low[i] = INT_MAX;
+            vis[i] = false;
+        }
 
-    	char c;
-    	for (int i = 0, u, k; i < n; ++i) {
-    		cin >> u >> c >> k >> c;
+        char c;
+        for (int i = 0, u, k; i < n; ++i) {
+            cin >> u >> c >> k >> c;
 
-    		adj[u].resize(k);
-    		scan(adj[u]);
-    	}
+            adj[u].resize(k);
+            scan(adj[u]);
+        }
 
-    	timer = 0;
-    	critical.clear();
-    	for (int i = 0; i < n; ++i) {
-    		if (!vis[i]) {
-    			dfs(i, -1);
-    		}
-    	}
+        timer = 0;
+        critical.clear();
+        for (int i = 0; i < n; ++i) {
+            if (!vis[i]) {
+                dfs(i, -1);
+            }
+        }
 
-    	cout << critical.size() << " critical links" << endl;
+        cout << critical.size() << " critical links" << endl;
 
-    	sort(critical.begin(), critical.end());
-    	for (auto &[u, v] : critical) {
-    		cout << u << " - " << v << endl;
-    	}
+        sort(critical.begin(), critical.end());
+        for (auto &[u, v] : critical) {
+            cout << u << " - " << v << endl;
+        }
     }
 
     return 0;

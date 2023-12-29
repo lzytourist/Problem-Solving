@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+const int N = 1e5 + 1;
+vector<int> primes;
+
+void gen() {
+    bitset<N> prime;
+
+    for (int i = 3; 1LL * i * i <= 1LL * N; i += 2) {
+        if (!prime[i]) {
+            for (int j = i * i; j < N; j += 2 * i) {
+                prime[j] = true;
+            }
+        }
+    }
+
+    primes.pb(2);
+    for (int i = 3; i < N; i += 2) {
+        if (!prime[i]) {
+            primes.pb(i);
+        }
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>PrimeGen</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

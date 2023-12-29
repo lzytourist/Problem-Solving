@@ -11,7 +11,7 @@
         },
         {
             "name": "Run - O2",
-            "shell_cmd": "g++ -std=gnu++17 -Wshadow -Wall -Wno-unused-result -DLUCHADOR \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+            "shell_cmd": "g++ -std=gnu++17 -Wshadow -Wall -Wno-unused-result -DLUCHADOR \"${file}\" -o \"${file_path}/${file_base_name}\" && time \"${file_path}/${file_base_name}\""
         }
     ]
 }
